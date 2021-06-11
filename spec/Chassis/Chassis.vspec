@@ -29,14 +29,6 @@
   description: Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.
   deprecation: V2.1 moved to Vehicle.GrossWeight
 
-- TowWeight:
-  datatype: uint16
-  type: attribute
-  default: 0
-  unit: kg
-  description: Maximum weight, in kilos, of trailer.
-  deprecation: V2.1 moved to Vehicle.TowWeight
-
 - Length:
   datatype: uint16
   type: attribute
@@ -97,6 +89,7 @@
 - Axle.WheelCount:
   datatype: uint8
   type: attribute
+  default: 1
   description: Number of wheels on the axle
 
 - Axle.WheelDiameter:
@@ -133,7 +126,6 @@
 # Wheels on Axles
 #
 - Axle.Wheel:
-  instances: ["Left","Right"]
   type: branch
   description: Wheel signals for axle
 
@@ -181,12 +173,6 @@
   unit: percent
   description: Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.
 
-- SteeringWheel.Position:
-  datatype: string
-  type: attribute
-  default: front_left
-  enum: ["front_left", "front_right"]
-  description: Position of the steering wheel on the left or right side of the vehicle.
 
 #
 # Accelerator
@@ -218,18 +204,3 @@
   max: 100
   unit: percent
   description: Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.
-
-
-#
-# Trailer
-#
-- Trailer:
-  type: branch
-  description: Trailer signals
-  deprecation: V2.1 moved to Vehicle.Trailer
-
-- Trailer.Connected:
-  datatype: boolean
-  type: sensor
-  description: Signal indicating if trailer is connected or not.
-  deprecation: V2.1 moved to Vehicle.Trailer.Connected

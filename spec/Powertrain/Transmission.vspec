@@ -31,7 +31,7 @@
   datatype: string
   type: attribute
   enum: [ "unknown", "forward wheel drive", "rear wheel drive", "all wheel drive" ]
-  default: "unknown"
+  default: "rear wheel drive"
   description: Drive type.
 
 #

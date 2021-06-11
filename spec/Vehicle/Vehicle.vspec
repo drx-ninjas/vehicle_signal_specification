@@ -266,25 +266,12 @@
 # Schema from schema.org
 #
 
-- RoofLoad:
-  datatype: int16
-  type: attribute
-  unit: kg
-  description: The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
-
 - accelerationTime:
   datatype: int16
   type: attribute
   unit: s
   description: The time needed to accelerate the vehicle from a given start velocity to a given target velocity.
   deprecation: V2.1 removed as ambiguous definition (start/stop-speed not defined)
-
-- cargoVolume:
-  datatype: float
-  type: attribute
-  unit: l
-  description: The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
-  min: 0
 
 - emissionsCO2:
   datatype: int16
@@ -354,18 +341,6 @@
 
 
 #
-# Trailer
-#
-- Trailer:
-  type: branch
-  description: Trailer signals
-
-- Trailer.Connected:
-  datatype: boolean
-  type: sensor
-  description: Signal indicating if trailer is connected or not.
-
-#
 # Location
 #
 
@@ -408,4 +383,3 @@
   type: sensor
   unit: m
   description: Current elevation of the position.
-

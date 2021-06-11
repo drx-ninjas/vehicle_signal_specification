@@ -30,37 +30,6 @@
 #include Vehicle/Vehicle.vspec Vehicle
 
 
-
-#
-# An uncontrolled private branch.
-#
-# Top level speed, location, and other vehicle state?
-# odo. trip.
-# Alias Speed -> Drivetrain.Transmission.Speed
-#
-# Global.Speed
-# Global.Location
-# Global.Odometer
-#
-# Keep to minimum
-#
-# Put in accuracy as attribute for signal
-#
-
-- Vehicle.Private:
-  type: branch
-  description: Uncontrolled branch where non-public signals can be defined.
-
-#include Private/Private.vspec Vehicle.Private
-
-- Vehicle.Media:
-  type: branch
-  description: Media service data.
-
-#include Media/Media.vspec Vehicle.Media
-
-
-
 #
 # The power train branch used to host the signals and attributes.
 #
@@ -68,7 +37,6 @@
   type: branch
   description: Powertrain data for battery management, etc.
 #include Powertrain/Powertrain.vspec Vehicle.Powertrain
-
 
 #
 # Internal combustion engine signals and attributes.
@@ -92,7 +60,6 @@
 # transmission branch created above.
 #include Powertrain/Transmission.vspec Vehicle.Powertrain.Transmission
 
-
 #
 # The electric motor branch used to host the signals and attributes in ElectricMotor.vspec.
 #
@@ -103,7 +70,6 @@
 # Include the electric motor vspec file and attach all its signals and attributes under the
 # electric motor branch created above.
 #include Powertrain/ElectricMotor.vspec Vehicle.Powertrain.ElectricMotor
-
 
 #
 # The battery signals and attributes used to host the signals in Battery.vspec.
@@ -116,7 +82,6 @@
 # battery management branch created above.
 #include Powertrain/Battery.vspec Vehicle.Powertrain.Battery
 
-
 #
 # The fuels system signals and attributes used to host the signals in FuelSystem.vspec.
 #
@@ -127,18 +92,6 @@
 # Include the fuel system vspec file and attach all its signals and attributes under the
 # fuels system branch created above.
 #include Powertrain/FuelSystem.vspec Vehicle.Powertrain.FuelSystem
-
-
-#
-# The fuel cell signals and attributes used to host the signals in FuelCell.vspec.
-#
-- Vehicle.Powertrain.FuelCell:
-  type: branch
-  description: Fuel Cell data.
-
-# Include the fuel cell vspec file and attach all its signals and attributes under the
-# fuel cell branch created above.
-#include Powertrain/FuelCell.vspec Vehicle.Powertrain.FuelCell
 
 
 #
@@ -163,7 +116,6 @@
 # Cabin branch created above.
 
 #include Cabin/Cabin.vspec Vehicle.Cabin
-
 
 #
 # Advanced Driver Assist Systems signals and attributes.
