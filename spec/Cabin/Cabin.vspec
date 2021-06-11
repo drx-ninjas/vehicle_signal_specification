@@ -10,15 +10,6 @@
 # All in-cabin originated signals and attributes
 #
 
-##
-# Rear window shade signals
-##
-- RearShade:
-  type: branch
-  description: Rear window shade.
-
-# Include the same shade spec used for sunroof and side windows.
-#include SingleShade.vspec RearShade
 
 ##
 # HVAC signals
@@ -34,80 +25,7 @@
 - Infotainment:
   type: branch
   description: Infotainment system
-
-
 #include Infotainment.vspec Infotainment
-
-##
-# Sunroof status
-##
-- Sunroof:
-  type: branch
-  description: Sun roof status.
-
-- Sunroof.Position:
-  datatype: int8
-  type: sensor
-  min: -100
-  max: 100
-  description: Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted
-
-#
-# Sunroof controlling switch.
-# We cannot use SingleSliderSwitch.vspec since we have TiltUp and TiltDown also
-- Sunroof.Switch:
-  datatype: string
-  type: actuator
-  enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
-  description: Switch controlling sliding action such as window, sunroof, or shade.
-
-- Sunroof.Shade:
-  type: branch
-  description: Sun roof shade status
-
-# Include shade specification also used by side and rear window.
-#include SingleShade.vspec Sunroof.Shade
-
-#
-# Rearview mirror signals
-#
-- RearviewMirror:
-  type: branch
-  description: Rearview mirror
-
-- RearviewMirror.DimmingLevel:
-  datatype: uint8
-  type: actuator
-  unit: percent
-  description: Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed
-
-
-##
-# Interior lights signals and sensors
-##
-- Lights:
-  type: branch
-  description: Interior lights signals and sensors
-
-# Include the lights specification and attach it under the Lights branch.x
-#include InteriorLights.vspec Lights
-
-##
-# Door signals and attributes
-##
-- Door:
-  type: branch
-  instances:
-    - Row[1,4]
-    - ["Left","Right"]
-  description: All doors, including windows and switches
-#include SingleDoor.vspec Door
-
-- DoorCount:
-  datatype: uint8
-  type: attribute
-  default: 0
-  description: Number of doors in vehicle
 
 
 
@@ -124,8 +42,8 @@
 - Seat:
   type: branch
   instances:
-    - Row[1,4]
-    - Pos[1,5]
+    - Row[1,2]
+    - Pos[1]
   description: All seats.
 #include SingleSeat.vspec Seat
 
@@ -150,18 +68,3 @@
   type: attribute
   default: 0
   description: Number of seats across each row from the front to the rear
-
-
-
-##
-# Convertible roof status
-##
-- Convertible:
-  type: branch
-  description: Convertible roof
-
-- Convertible.Status:
-  datatype: string
-  type: sensor
-  enum: ["undefined", "closed", "open", "closing", "opening", "stalled"]
-  description: Roof status on convertible vehicles
