@@ -12,4 +12,5 @@ vss_rel_*.proto
 vss_rel_*.h
 vss_rel_*.json
 vss_rel_*_macro.h
+vss_rel_*.graphql
 

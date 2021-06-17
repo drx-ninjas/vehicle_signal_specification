@@ -122,3 +122,16 @@
   enum: [ "unknown", "Not_Fitted", "AC_Type_1", "AC_Type_2", "AC_GBT", "AC_DC_Type_1_Combo", "AC_DC_Type_2_Combo", "DC_GBT", "DC_Chademo" ]
   default: "unknown"
   description: Indicates the primary charging type fitted to the vehicle
+
+##
+# Side Stand definition
+##
+
+- SideStand:
+  type: branch
+  description: Collects Information about the side stand
+
+- SideStand.IsDown:
+  datatype: boolean
+  type: actuator
+  description: side stand status. 0 - up, 1 - down
